@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix: ${{
           fromJSON(
-            '{"include":[{"project":"foo","config":"Debug"},{"project":"bar","config":"Release"}]}'
+            format('{{"include":[{{"project":"{0}","config":"Debug"}},{{"project":"{1}","config":"Release"}}]}}', 'foo', 'bar')
           )
         }}
     steps:
