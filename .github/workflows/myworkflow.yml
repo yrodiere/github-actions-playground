@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{
-        fromJSON( '{"include":[{"project":"foo","config":"Debug"},{"project":"bar","config":"Release"}]}' )
+          fromJSON(
+            '{"include":[{"project":"foo","config":"Debug"},{"project":"bar","config":"Release"}]}'
+          )
         }}
     steps:
       - run: echo ${{ matrix.project }} "/" ${{ matrix.config }}
