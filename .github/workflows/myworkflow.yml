@@ -4,7 +4,8 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{
+      matrix: >-
+        ${{
           fromJSON(
             1 == 1
             && format('{{"include":[{{"project":"{0}","config":"Debug"}},{{"project":"{1}","config":"Release"}}]}}', 'foo', 'bar')
